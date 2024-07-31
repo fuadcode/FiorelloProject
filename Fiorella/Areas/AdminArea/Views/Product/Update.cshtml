@@ -1,0 +1,55 @@
+﻿@using Fiorello.Areas.AdminArea.ViewModels.Product;
+@model ProductUpdateVM
+
+<div class="container">
+    <div class="row">
+        <div class="card">
+            <div class="card-body">
+                @foreach (var img in Model.ProductImages)
+                {
+                    if (img.IsMain)
+                    {
+                        <img src="~/img/@img.ImageUrl" width="300" height="150" />
+                        <span>Is Main</span> <br /> <br />
+                    }
+                    else
+                    {
+                        <img src="~/img/@img.ImageUrl" width="200" height="100" />
+                        <a class="btn btn-success" asp-action="DeleteImage" asp-route-id="@img.Id">Delete Image</a>
+                        <br /> <br />
+                    }
+                }
+                <h4 class="card-title">Product Create form</h4>
+                <form enctype="multipart/form-data"  method="post" class="forms-sample">
+                    <div class="form-group">
+                        <label asp-for="Name"></label>
+                        <input asp-for="Name" class="form-control" placeholder="Name">
+                        <span class="text-danger" asp-validation-for="Name"></span> 
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Price"></label>
+                        <input asp-for="Price" class="form-control" placeholder="Price">
+                        <span class="text-danger" asp-validation-for="Price"></span> 
+
+                    </div>
+                   
+                    <div class="form-group">
+                        <label asp-for="Photos"></label>
+                        <input asp-for="Photos" class="form-control" placeholder="Count">
+                        <span class="text-danger" asp-validation-for="Photos"></span> 
+
+                    </div>
+                    <div class="form-group">
+                        <select asp-for="CategoryId" asp-items="@ViewBag.Categories"></select>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary mr-2">Update</button>
+                    <a asp-action="index" class="btn btn-light">Go Back</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@section script {
+    <partial name="_ValidationPartial"></partial>
+}

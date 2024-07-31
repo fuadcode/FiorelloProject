@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+<section id="blog">
+<div class="container">
+    <div class="row pb-5" id="blogList">
+            <input id="BlogCount" type="hidden" value="@ViewBag.BlogCount"></input>
+           @await Component.InvokeAsync("Blog")
+    </div>
+    <div class="row justify-content-center">
+        <button id="loadmore" class="btn-primary btn">Load More</button>
+    </div>
+</div>
+</section>

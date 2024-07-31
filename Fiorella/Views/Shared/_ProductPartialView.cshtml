@@ -1,0 +1,22 @@
+﻿@model IEnumerable<Product>
+@foreach (var product in Model)
+{
+    <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
+        <div class="product-item text-center" data-id="@product.ProductImages">
+            <div class="img">
+                <a asp-action="Detail" asp-controller="Product" asp-route-id="@product.Id">
+                    <img src="~/img/@(product.ProductImages.Any(i=>i.IsMain)?product.ProductImages.FirstOrDefault()?.ImageUrl:product.ProductImages.FirstOrDefault()?.ImageUrl)" class="img-fluid" alt="">
+                </a>
+            </div>
+            <div class="title mt-3">
+                <h6>@product.Name</h6>
+            </div>
+            <div class="price">
+                <a asp-controller="basket" asp-action="addbasket" asp-route-id="@product.Id">
+                    <span class="text-black-50">Add to cart</span>
+                </a>
+                <span class="text-black-50">$@product.Price</span>
+            </div>
+        </div>
+    </div>
+}

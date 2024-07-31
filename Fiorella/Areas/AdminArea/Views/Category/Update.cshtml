@@ -1,0 +1,23 @@
+﻿@using Fiorello.Areas.AdminArea.ViewModels.Category;
+@model CategoryUpdateVM
+<div class="container">
+    <div class="row">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Category Update form</h4>
+                <form asp-action="update" method="post" class="forms-sample">
+                    <div class="form-group">
+                        <label asp-for="Name"></label>
+                        <input asp-for="Name" class="form-control" placeholder="Name">
+                        <span class="text-danger" asp-validation-for="Name"></span> 
+                    </div>
+                    <button type="submit" class="btn btn-primary mr-2">Update</button>
+                    <a asp-action="index" class="btn btn-light">Go Back</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@section script {
+    <partial name="_ValidationPartial"></partial>
+}

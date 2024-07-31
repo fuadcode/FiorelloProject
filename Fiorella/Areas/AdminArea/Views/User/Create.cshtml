@@ -1,0 +1,84 @@
+﻿@using Fiorello.Areas.AdminArea.ViewModels.UserVms
+@model CreateUserVM
+
+@{
+    Layout = "~/Areas/AdminArea/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Create User</h1>
+
+<form method="post">
+    <input type="text" asp-for="UserName" placeholder="Username">
+    <span asp-validation-for="UserName" class="text-danger"></span>
+
+    <input type="text" asp-for="FullName" placeholder="Full Name">
+    <span asp-validation-for="FullName" class="text-danger"></span>
+
+    <input type="text" asp-for="Email" placeholder="Email">
+    <span asp-validation-for="Email" class="text-danger"></span>
+
+    <input type="password" asp-for="Password" placeholder="Password">
+    <span asp-validation-for="Password" class="text-danger"></span>
+
+    <input type="password" asp-for="RePassword" placeholder="Confirm Password">
+    <span asp-validation-for="RePassword" class="text-danger"></span>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Create User</button>
+    </div>
+</form>
+
+
+<style>
+    /* Form Container */
+    form {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+    }
+
+        /* Input Fields */
+        form input[type="text"],
+        form input[type="password"] {
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        /* Validation Message */
+        form .text-danger {
+            font-size: 0.875rem;
+            color: #dc3545;
+            margin-bottom: 1rem;
+        }
+
+        /* Button */
+        form .btn-primary {
+            width: 100%;
+            padding: 0.75rem;
+            font-size: 1rem;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+            form .btn-primary:hover {
+                background-color: #0056b3;
+            }
+
+    /* Form Heading */
+    h1 {
+        text-align: center;
+        margin-bottom: 2rem;
+        color: #333;
+    }
+
+</style>

@@ -1,0 +1,27 @@
+﻿@using Fiorella.Areas.AdminArea.ViewModels.Slider;
+@model SliderUpdateVM
+<div class="container">
+    <div class="row">
+        <div class="card">
+            <div class="card-body">
+                <img src="~/img/@Model.ImageUrl" width="500" height="300" alt="" />
+                <h4 class="card-title">Slider Update form</h4>
+                <form enctype="multipart/form-data" asp-action="update" method="post" class="forms-sample">
+
+                    <div class="form-group">
+                        <label asp-for="Photo"></label>
+                        <input asp-for="Photo" class="form-control" placeholder="Description">
+                        <span class="text-danger" asp-validation-for="Photo"></span> 
+
+                    </div>
+
+                    <button type="submit" class="btn btn-primary mr-2">Update</button>
+                    <a asp-action="index" class="btn btn-light">Go Back</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@section script {
+    <partial name="_ValidationPartial"></partial>
+}

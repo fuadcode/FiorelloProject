@@ -1,0 +1,11 @@
+﻿@model IEnumerable<Product>
+<div id="products">
+    <div class="container">
+        <div class="row" id="product-list">
+            @await Component.InvokeAsync("Product")     
+        </div>
+        <div class="row justify-content-center " >
+            <button id="loadmore-product" class="btn-primary btn ">Load More</button>
+        </div>
+    </div>
+</div>

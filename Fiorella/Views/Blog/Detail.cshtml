@@ -1,0 +1,25 @@
+﻿@model Blog
+@{
+    ViewData["Title"] = "Detail";
+}
+ <section id="about">
+            <div class="container py-5">
+                <div class="row py-5">
+                    <div class="col-lg-6 text-center">
+                        <div class="img">
+                            <img src="~/img/@Model.ImgUrl" class="img-fluid" alt="">
+                            
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="about-text mt-5 mt-lg-0 px-lg-5">
+                            <h1>@Model.Title</h1>
+                            <p class="py-3">@Model.Desc</p>
+                    <div class="date rounded bg-light position-absolute py-1 px-2">
+                        <span>@Model.CreatedDate?.ToString("dd.MM.yyyy")</span>
+                    </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>

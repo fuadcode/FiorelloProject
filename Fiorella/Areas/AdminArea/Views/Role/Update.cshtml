@@ -1,0 +1,26 @@
+﻿@model Fiorello.Areas.AdminArea.ViewModels.RoleVMs.UpdateRoleVM
+
+@{
+    ViewData["Title"] = "Update Role";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title text-center mb-4">Update Role</h4>
+                    <form asp-action="Update" method="post">
+                        <input type="hidden" asp-for="RoleId" />
+                        <div class="form-group">
+                            <label asp-for="RoleName" class="form-label"></label>
+                            <input asp-for="RoleName" class="form-control" placeholder="Enter Role Name" />
+                            <span asp-validation-for="RoleName" class="text-danger"></span>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Update</button>
+                        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

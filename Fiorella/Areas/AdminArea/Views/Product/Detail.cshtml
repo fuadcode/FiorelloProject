@@ -1,0 +1,29 @@
+﻿@model Product
+<div class="container">
+    <div class="row">
+        <div class="card-body">
+            @foreach (var img in Model.ProductImages)
+            {
+                if (img.IsMain)
+                {
+                    <img src="~/img/@img.ImageUrl" width="300" height="150" />
+                    <span>Is Main</span> <br /> <br />
+                }
+                else
+                {
+                    <img src="~/img/@img.ImageUrl" width="200" height="100" />
+                    <a class="btn btn-success" asp-action="SetMainPhoto" asp-route-id="@img.Id">Set Main</a>
+                    <br /> <br />
+                }
+            }
+            <h4 class="card-title">@Model.Name</h4>
+            <p class="card-description">
+                @Model.CreatedDate?.ToString("dd.MM.yyyy")
+            </p>
+            <p>
+               Product Price:@Model.Price$
+            </p>
+            <a asp-action="index" class="btn btn-outline-dark">Go Back</a>
+        </div>
+    </div>
+</div>

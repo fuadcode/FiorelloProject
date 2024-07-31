@@ -1,0 +1,12 @@
+﻿@model Category
+<div class="container">
+    <div class="row">
+        <div class="card-body">
+            <h4 class="card-title">@Model.Name</h4>
+            <p class="card-description">
+               @Model.CreatedDate?.ToString("dd.MM.yyyy")
+            </p>
+            <a asp-action="index" class="btn btn-outline-dark">Go Back</a>
+        </div>
+    </div>
+</div>
